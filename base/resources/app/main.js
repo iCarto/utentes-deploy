@@ -21,7 +21,7 @@ function createWindow (mainAddr, subpy) {
     "webPreferences": {"nodeIntegration": true},
     title: 'Gestão de Utentes',
     show: false,
-    icon: __dirname + '/sixhiara_256.ico',
+    icon: __dirname + '/window_icon.ico',
   });
   mainWindow.maximize();
 
