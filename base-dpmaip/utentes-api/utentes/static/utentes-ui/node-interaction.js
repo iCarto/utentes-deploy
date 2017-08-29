@@ -4,12 +4,12 @@ delete window.exports;
 delete window.module;
 
 SIXHIARA = window.SIXHIARA || {
-  center:[-12.5, 39.0],
-  southWest:[-23, 31],
-  northEast:[-9, 48],
-  search: {
-    zoom: 8,
-  },
+    center:[-12.5, 39.0],
+    southWest:[-23, 31],
+    northEast:[-9, 48],
+    search: {
+      zoom: 8,
+    },
 };
 
 window.SIXHIARA.xlsFieldsToExport = [
@@ -20,7 +20,7 @@ window.SIXHIARA.xlsFieldsToExport = [
     {'header': 'Registrado em', 'value': 'utente.reg_zona'},
     {'header': 'Provincia', 'value': 'utente.loc_provin'},
     {'header': 'Distrito', 'value': 'utente.loc_distri'},
-    {'header': 'Posto', 'value': 'utente.loc_posto'},
+    {'header': 'Posto administrativo', 'value': 'utente.loc_posto'},
     {'header': 'Bairro', 'value': 'utente.loc_nucleo'},
     {'header': 'Observações', 'value': 'utente.observacio'},
     {'header': 'Nro da exploração', 'value': 'exp_id'},
@@ -58,30 +58,30 @@ window.SIXHIARA.shpFieldsToExport = [
     { 'header': 'uten_nuit', 'value': 'utente.nuit' },
     { 'header': 'con_l_to', 'value': 'c_licencia' },
     { 'header': 'tipo_subt',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
-          return lic.length > 0;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
+        return lic.length > 0;
+    }
     },
     { 'header': 'con_l_sb',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
-          return (lic[0] && lic[0].c_licencia) || null;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
+        return (lic[0] && lic[0].c_licencia) || null;
+    }
     },
     { 'header': 'tipo_supe',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
-          return lic.length > 0;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
+        return lic.length > 0;
+    }
     },
     { 'header': 'con_l_su',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
-          return (lic[0] && lic[0].c_licencia) || null;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
+        return (lic[0] && lic[0].c_licencia) || null;
+    }
     },
-    {'header': 'observacio', 'value': 'observacio'},
+    { 'header': 'observacio', 'value': 'observacio' },
     {'header': 'area_pisc', 'value': 'actividade.area_pisc'},
     {'header': 'ano_i_ati', 'value': 'actividade.ano_i_ati'},
     {'header': 'n_tanques', 'value': 'actividade.n_tanques'},

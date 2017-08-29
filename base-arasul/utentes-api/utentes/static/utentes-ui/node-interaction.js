@@ -4,19 +4,19 @@ delete window.exports;
 delete window.module;
 
 SIXHIARA = window.SIXHIARA || {
-  center: [-24, 33.5],
-  southWest: [-28, 27],
-  northEast: [-9, 43],
-  search: {
-    zoom: 7,
-  },
+    center:[-24, 33.5],
+    southWest:[-28, 27],
+    northEast:[-9, 43],
+    search: {
+      zoom: 7,
+    },
 };
 
 window.SIXHIARA.xlsFieldsToExport = [
     {'header': 'Nome', 'value': 'utente.nome'},
     {'header': 'Nuit', 'value': 'utente.nuit'},
-    {'header': 'Tipo de entidade', 'value': 'utente.entidade'},
-    {'header': 'Nro Registro comercial', 'value': 'utente.reg_comerc'},
+    {'header': 'Tipo de utente', 'value': 'utente.uten_tipo'},
+    {'header': 'Nro registro comercial', 'value': 'utente.reg_comerc'},
     {'header': 'Registrado em', 'value': 'utente.reg_zona'},
     {'header': 'Provincia', 'value': 'utente.loc_provin'},
     {'header': 'Distrito', 'value': 'utente.loc_distri'},
@@ -47,73 +47,73 @@ window.SIXHIARA.shpFieldsToExport = [
     { 'header': 'utente', 'value': 'utente.nome' },
     { 'header': 'uten_nuit', 'value': 'utente.nuit' },
     { 'header': 'abastecem',
-      'value': function (exp) { return exp.actividade.tipo === 'Abastecimento'; }
+    'value': function (exp) { return exp.actividade.tipo === 'Abastecimento'; }
     },
     { 'header': 'saneament',
-      'value': function (exp) { return exp.actividade.tipo === 'Saneamento'; }
+    'value': function (exp) { return exp.actividade.tipo === 'Saneamento'; }
     },
     { 'header': 'agricultu',
-      'value': function (exp) { return exp.actividade.tipo === 'Agricultura de Regadio'; }
+    'value': function (exp) { return exp.actividade.tipo === 'Agricultura de Regadio'; }
     },
     { 'header': 'pecuaria',
-      'value': function (exp) { return exp.actividade.tipo === 'Pecuária'; }
+    'value': function (exp) { return exp.actividade.tipo === 'Pecuária'; }
     },
     { 'header': 'piscicult',
-      'value': function (exp) { return exp.actividade.tipo === 'Piscicultura'; }
+    'value': function (exp) { return exp.actividade.tipo === 'Piscicultura'; }
     },
     { 'header': 'industria',
-      'value': function (exp) { return exp.actividade.tipo === 'Indústria'; }
+    'value': function (exp) { return exp.actividade.tipo === 'Indústria'; }
     },
     { 'header': 'pro_energ',
-      'value': function (exp) { return exp.actividade.tipo === 'Producção de energia'; }
+    'value': function (exp) { return exp.actividade.tipo === 'Producção de energia'; }
     },
     { 'header': 'con_l_to', 'value': 'c_licencia' },
     { 'header': 'tipo_subt',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
-          return lic.length > 0;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
+        return lic.length > 0;
+    }
     },
     { 'header': 'con_l_sb',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
-          return (lic[0] && lic[0].c_licencia) || null;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
+        return (lic[0] && lic[0].c_licencia) || null;
+    }
     },
     { 'header': 'est_l_sb',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
-          return (lic[0] && lic[0].estado) || null;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
+        return (lic[0] && lic[0].estado) || null;
+    }
     },
     { 'header': 'tipo_supe',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
-          return lic.length > 0;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
+        return lic.length > 0;
+    }
     },
     { 'header': 'con_l_su',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
-          return (lic[0] && lic[0].c_licencia) || null;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
+        return (lic[0] && lic[0].c_licencia) || null;
+    }
     },
     { 'header': 'est_l_su',
-      'value': function (exp) {
-          var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
-          return (lic[0] && lic[0].estado) || null;
-      }
+    'value': function (exp) {
+        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
+        return (lic[0] && lic[0].estado) || null;
+    }
     },
     { 'header': 'pagamento',
-      'value': function (exp) {
-          var pagamento = 'No';
-          if (_.isNull(exp.pagos)){
+    'value': function (exp) {
+        var pagamento = 'No';
+        if (_.isNull(exp.pagos)){
             pagamento = null;
         } else if (exp.pagos === true) {
             pagamento = 'Si';
-          }
-          return pagamento;
-      }
+        }
+        return pagamento;
+    }
     },
     { 'header': 'observacio', 'value': 'observacio' },
 ]
