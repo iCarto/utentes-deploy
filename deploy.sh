@@ -57,4 +57,4 @@ cp -R ./base-aranorte/* "${FOLDER}"/${DATE}_SIRHAN_Utentes/
 cp -R ./base-arasul/* "${FOLDER}"/${DATE}_SIRHAS_Utentes/
 cp -R ./base-dpmaip/* "${FOLDER}"/${DATE}_DPMAIP_SIAM/
 
-[ -f secret.sh ] && bash secret.sh $FOLDER $DATE
+[ -f secret.sh ] && bash secret.sh "${FOLDER}" $DATE
