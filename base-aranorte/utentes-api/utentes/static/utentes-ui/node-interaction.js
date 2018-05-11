@@ -30,6 +30,12 @@ window.SIXHIARA.xlsFieldsToExport = [
     {'header': 'Consumo solicitado', 'value': 'c_soli'},
     {'header': 'Consumo real', 'value': 'c_real'},
     {'header': 'Consumo estimado', 'value': 'c_estimado'},
+    {'header': 'Valor com IVA (MZN/mês)',
+     'value': function(exp) {
+         return exp.licencias.reduce(
+             (accumulator, lic) => accumulator + lic.pago_iva,
+         0);
+     }},
 ];
 
 window.SIXHIARA.shpFieldsToExport = [
