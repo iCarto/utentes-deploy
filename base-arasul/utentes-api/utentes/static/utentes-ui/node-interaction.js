@@ -70,37 +70,37 @@ window.SIXHIARA.shpFieldsToExport = [
     { 'header': 'con_l_to', 'value': 'c_licencia' },
     { 'header': 'tipo_subt',
     'value': function (exp) {
-        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
+        var lic = exp.licencias.filter( lic => lic.tipo_agua == 'Subterrânea' );
         return lic.length > 0;
     }
     },
     { 'header': 'con_l_sb',
     'value': function (exp) {
-        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
+        var lic = exp.licencias.filter( lic => lic.tipo_agua == 'Subterrânea' );
         return (lic[0] && lic[0].c_licencia) || null;
     }
     },
     { 'header': 'est_l_sb',
     'value': function (exp) {
-        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Subterrânea' );
+        var lic = exp.licencias.filter( lic => lic.tipo_agua == 'Subterrânea' );
         return (lic[0] && lic[0].estado) || null;
     }
     },
     { 'header': 'tipo_supe',
     'value': function (exp) {
-        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
+        var lic = exp.licencias.filter( lic => lic.tipo_agua == 'Superficial' );
         return lic.length > 0;
     }
     },
     { 'header': 'con_l_su',
     'value': function (exp) {
-        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
+        var lic = exp.licencias.filter( lic => lic.tipo_agua == 'Superficial' );
         return (lic[0] && lic[0].c_licencia) || null;
     }
     },
     { 'header': 'est_l_su',
     'value': function (exp) {
-        var lic = exp.licencias.filter( lic => lic.lic_tipo == 'Superficial' );
+        var lic = exp.licencias.filter( lic => lic.tipo_agua == 'Superficial' );
         return (lic[0] && lic[0].estado) || null;
     }
     },
