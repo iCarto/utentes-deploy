@@ -31,22 +31,40 @@ wget https://github.com/iCarto/utentes-api/archive/master.zip -O /tmp/utentes-ap
 unzip /tmp/utentes-api.zip -d /tmp/
 # mv /tmp/utentes-api-master /tmp/utentes-api
 cp -R /tmp/utentes-api-master "${FOLDER}"/${DATE}_SIRHAN_Utentes/utentes-api
-cp -R /tmp/utentes-api-master "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api
 cp -R /tmp/utentes-api-master "${FOLDER}"/${DATE}_DPMAIP_SIAM/utentes-api
+rm -rf /tmp/utentes-api*
 
-wget https://github.com/iCarto/utentes-ui/archive/master.zip -O /tmp/utentes-ui.zip
-unzip /tmp/utentes-ui.zip -d /tmp/
-# mv /tmp/utentes-ui-master /tmp/utentes-ui
-cp -R /tmp/utentes-ui-master "${FOLDER}"/${DATE}_SIRHAN_Utentes/utentes-api/utentes/static/utentes-ui
-cp -R /tmp/utentes-ui-master "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api/utentes/static/utentes-ui
-wget https://github.com/iCarto/utentes-ui/archive/dpmaip.zip -O /tmp/utentes-ui.zip
-unzip /tmp/utentes-ui.zip -d /tmp/
-cp -R /tmp/utentes-ui-dpmaip  "${FOLDER}"/${DATE}_DPMAIP_SIAM/utentes-api/utentes/static/utentes-ui
+wget https://github.com/iCarto/utentes-api/archive/ara-sul.zip -O /tmp/utentes-api.zip
+unzip /tmp/utentes-api.zip -d /tmp/
+cp -R /tmp/utentes-api-ara-sul "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api
 
+
+# wget https://github.com/iCarto/utentes-ui/archive/master.zip -O /tmp/utentes-ui.zip
+# unzip /tmp/utentes-ui.zip -d /tmp/
+# # mv /tmp/utentes-ui-master /tmp/utentes-ui
+# cp -R /tmp/utentes-ui-master "${FOLDER}"/${DATE}_SIRHAN_Utentes/utentes-api/utentes/static/utentes-ui
+# cp -R /tmp/utentes-ui-master "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api/utentes/static/utentes-ui
+# wget https://github.com/iCarto/utentes-ui/archive/dpmaip.zip -O /tmp/utentes-ui.zip
+# unzip /tmp/utentes-ui.zip -d /tmp/
+# cp -R /tmp/utentes-ui-dpmaip  "${FOLDER}"/${DATE}_DPMAIP_SIAM/utentes-api/utentes/static/utentes-ui
+
+
+
+sed -i "s/10003/5432/" "${FOLDER}"/${DATE}_SIRHAN_Utentes/utentes-api/production.ini
+sed -i "s/10003/5432/" "${FOLDER}"/${DATE}_SIRHAN_Utentes/utentes-api/development.ini
+
+sed -i "s/ara[ ]*=.*/ara = ARAN/" "${FOLDER}"/${DATE}_SIRHAN_Utentes/utentes-api/production.ini
+sed -i "s/ara[ ]*=.*/ara = ARAN/" "${FOLDER}"/${DATE}_SIRHAN_Utentes/utentes-api/development.ini
 
 
 sed -i "s/aranorte/arasul/" "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api/production.ini
 sed -i "s/aranorte/arasul/" "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api/development.ini
+
+sed -i "s/10003/5432/" "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api/production.ini
+sed -i "s/10003/5432/" "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api/development.ini
+
+sed -i "s/ara[ ]*=.*/ara = ARAS/" "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api/production.ini
+sed -i "s/ara[ ]*=.*/ara = ARAS/" "${FOLDER}"/${DATE}_SIRHAS_Utentes/utentes-api/development.ini
 
 
 sed -i "s/aranorte/dpmaip/" "${FOLDER}"/${DATE}_DPMAIP_SIAM/utentes-api/production.ini

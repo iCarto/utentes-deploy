@@ -76,7 +76,7 @@ app.on('ready', function() {
   // var subpy = spawn('../../virtualenvs/sixhiara/bin/pserve', ['production.ini']);
 
   setTimeout(function(){
-    var mainAddr = 'http://localhost:6543/static/utentes-ui/exploracao-search.html';
+    var mainAddr = 'http://localhost:6543/login';
     createWindow(mainAddr, subpy);
   }, 4000);
 
