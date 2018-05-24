@@ -25,17 +25,19 @@ function createWindow (mainAddr, subpy) {
   });
   mainWindow.maximize();
 
-  mainWindow.loadURL(mainAddr);
+  setTimeout(function(){
+    mainWindow.loadURL(mainAddr);
+  }, 2500);
   /*
     Este código se usaba para evitar el problema de reusar código antiguo en nuevas
     versiones de la aplicación. Modificando la versión en package no debería suceder
   */
-
+  /*
   mainWindow.loadURL(mainAddr, {"extraHeaders" : "pragma: no-cache\n"});
   mainWindow.webContents.reloadIgnoringCache();
   mainWindow.webContents.session.clearCache(function(){console.log('Cache cleared')});
   mainWindow.webContents.session.clearStorageData(function(){console.log('StorageData cleared')});
-
+  */
 
   // mainWindow.webContents.openDevTools();
 
@@ -45,12 +47,12 @@ function createWindow (mainAddr, subpy) {
   });
 
 
-
+/*
   mainWindow.on('close', function() {
     mainWindow.webContents.session.clearCache(function(){console.log('Closed: Cache cleared')});
     mainWindow.webContents.session.clearStorageData(function(){console.log('Closed: StorageData cleared')});
   });
-
+*/
 
   mainWindow.on('closed', function() {
     mainWindow = null;

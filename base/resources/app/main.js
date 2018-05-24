@@ -25,7 +25,9 @@ function createWindow (mainAddr, subpy) {
   });
   mainWindow.maximize();
 
-  mainWindow.loadURL(mainAddr);
+  setTimeout(function(){
+    mainWindow.loadURL(mainAddr);
+  }, 2500);
   /*
     Este código se usaba para evitar el problema de reusar código antiguo en nuevas
     versiones de la aplicación. Modificando la versión en package no debería suceder
