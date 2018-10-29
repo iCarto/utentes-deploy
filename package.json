@@ -1,0 +1,22 @@
+{
+  "name": "utentes-deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/icarto/utentes-deploy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/icarto/utentes-deploy/issues"
+  },
+  "homepage": "https://gitlab.com/icarto/utentes-deploy#README",
+  "dependencies": {
+    "winresourcer": "0.9.0"
+  }
+}
