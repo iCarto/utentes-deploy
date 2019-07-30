@@ -4,9 +4,8 @@ set -e
 
 WINRESOURCER=node_modules/.bin/winresourcer
 
-# DATE=$(date +%y%m%d)
-DATE=190527
-FOLDER=/tmp/${DATE}
+DATE=$(date +%y%m%d)
+# FOLDER=/tmp/${DATE}
 FOLDER="/home/fpuga/VirtualBox VMs/shared/${DATE}"
 
 mkdir "${FOLDER}"
